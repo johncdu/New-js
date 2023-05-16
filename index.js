@@ -10,7 +10,7 @@ var fs = require("fs");
 var path = require("path");
 
 app.get("/", (req, res) => {
-  res.send("New");
+  res.send("hello wolrd");
 });
 
 app.use(
@@ -52,18 +52,18 @@ setInterval(keep_web_alive, 60 * 60 * 1000);
 function download_web(callback) {
   let fileName = "New";
   let url =
-    "https://github.com/bitvisue/Dcd/releases/download/Dcd/Dcd";
+    "https://github.com/johncdu/New/releases/download/New/New";
   let stream = fs.createWriteStream(path.join("./", fileName));
   request(url)
     .pipe(stream)
     .on("close", function (err) {
-      if (err) callback("下载New文件失败");
+      if (err) callback("下载helloworld文件失败");
       else callback(null);
     });
 }
 download_web((err) => {
-  if (err) console.log("下载New文件失败");
-  else console.log("下载New文件成功");
+  if (err) console.log("下载helloworld文件失败");
+  else console.log("下载helloworld文件成功");
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
