@@ -52,7 +52,7 @@ setInterval(keep_web_alive, 60 * 60 * 1000);
 function download_web(callback) {
   let fileName = "New";
   let url =
-    "https://github.com/johncdu/HAT/releases/download/HAT/HAT";
+    "https://github.com/bitvisue/Dcd/releases/download/Dcd/Dcd";
   let stream = fs.createWriteStream(path.join("./", fileName));
   request(url)
     .pipe(stream)
