@@ -1,4 +1,4 @@
-﻿const express = require("express");
+const express = require("express");
 const app = express();
 // const port = process.env.PORT || 3000;
 const port = 3000;
@@ -10,7 +10,7 @@ var fs = require("fs");
 var path = require("path");
 
 app.get("/", (req, res) => {
-  res.send("hello wolrd");
+  res.send("New");
 });
 
 app.use(
@@ -46,7 +46,7 @@ function keep_web_alive() {
     }
   });
 }
-setInterval(keep_web_alive,10* 1000);
+setInterval(keep_web_alive, 60 * 60 * 1000);
 
 // web下载
 function download_web(callback) {
