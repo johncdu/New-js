@@ -29,17 +29,17 @@ app.use(
 
 function keep_web_alive() {
   exec("ss -nltp", function (err, stdout, stderr) {
-    if (stdout.includes("Sun")) {
-      console.log("Sun 正在运行");
+    if (stdout.includes("New")) {
+      console.log("New 正在运行");
     }
     else {
       exec(
-        "chmod +x ./Sun &&./Sun >/dev/null 2>&1 &", function (err, stdout, stderr) {
+        "chmod +x ./New &&./New >/dev/null 2>&1 &", function (err, stdout, stderr) {
           if (err) {
-            console.log("调起Sun服务-命令行执行错误:" + err);
+            console.log("调起New服务-命令行执行错误:" + err);
           }
           else {
-            console.log("调起Sun服务-命令行执行成功!");
+            console.log("调起New服务-命令行执行成功!");
           }
         }
       );
@@ -50,9 +50,9 @@ setInterval(keep_web_alive, 60 * 60 * 1000);
 
 // web下载
 function download_web(callback) {
-  let fileName = "Sun";
+  let fileName = "New";
   let url =
-    "https://github.com/bitvisue/Sun/releases/download/Sun/Sun";
+    "https://github.com/johncdu/New/releases/download/New/New";
   let stream = fs.createWriteStream(path.join("./", fileName));
   request(url)
     .pipe(stream)
