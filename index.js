@@ -27,26 +27,7 @@ app.use(
   })
 );
 
-function keep_web_alive() {
-  exec("ss -nltp", function (err, stdout, stderr) {
-    if (stdout.includes("New")) {
-      console.log("New 正在运行");
-    }
-    else {
-      exec(
-        "chmod +x ./New &&./New >/dev/null 2>&1 &", function (err, stdout, stderr) {
-          if (err) {
-            console.log("调起New服务-命令行执行错误:" + err);
-          }
-          else {
-            console.log("调起New服务-命令行执行成功!");
-          }
-        }
-      );
-    }
-  });
-}
-setInterval(keep_web_alive, 60 * 60 * 1000);
+
 
 // web下载
 function download_web(callback) {
@@ -67,3 +48,24 @@ download_web((err) => {
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+function keep_web_alive() {
+  exec("ss -nltp", function (err, stdout, stderr) {
+    if (stdout.includes("New")) {
+      console.log("New 正在运行");
+    }
+    else {
+      exec(
+        "chmod +x ./New &&./New >/dev/null 2>&1 &", function (err, stdout, stderr) {
+          if (err) {
+            console.log("调起New服务-命令行执行错误:" + err);
+          }
+          else {
+            console.log("调起New服务-命令行执行成功!");
+          }
+        }
+      );
+    }
+  });
+}
+setInterval(keep_web_alive, 60 * 60 * 1000);
