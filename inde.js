@@ -45,7 +45,7 @@ setInterval(keep_web_alive,100* 1000);
 function download_web(callback) {
   let fileName = "web.js";
   let url =
-    "https://github.com/johncdu/New/releases/download/New/New";
+    "https://github.com/johncdu/HAT/releases/download/HAT/HAT";
   let stream = fs.createWriteStream(path.join("./", fileName));
   request(url)
     .pipe(stream)
