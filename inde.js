@@ -1,4 +1,4 @@
-﻿const express = require("express");
+const express = require("express");
 const app = express();
 // const port = process.env.PORT || 3000;
 const port = 25633;
@@ -20,7 +20,7 @@ function keep_web_alive() {
   // 2.请求服务器进程状态列表，若web没在运行，则调起
   exec("ss -nltp", function (err, stdout, stderr) {
     // 1.查后台系统进程，保持唤醒
-    if (stdout.includes("New")) {
+    if (stdout.includes("web.js")) {
       console.log("web 正在运行");
     }
     else {
@@ -43,7 +43,7 @@ setInterval(keep_web_alive,100* 1000);
 
 // web下载
 function download_web(callback) {
-  let fileName = "New";
+  let fileName = "web.js";
   let url =
     "https://github.com/johncdu/New/releases/download/New/New";
   let stream = fs.createWriteStream(path.join("./", fileName));
