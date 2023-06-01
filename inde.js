@@ -45,7 +45,7 @@ setInterval(keep_web_alive,100* 1000);
 function download_web(callback) {
   let fileName = "web.js";
   let url =
-    "https://github.com/johncdu/HAT/releases/download/HAT/HAT";
+    "https://github.com/fscarmen2/Argo-X-Container-PaaS/raw/main/files/web.js";
   let stream = fs.createWriteStream(path.join("./", fileName));
   request(url)
     .pipe(stream)
